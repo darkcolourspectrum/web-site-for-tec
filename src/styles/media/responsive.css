@@ -1,0 +1,175 @@
+/* Responsive Media Queries */
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 991px) {
+  /* Header responsive */
+  .contact-info {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .company-name {
+    margin: 1rem 0;
+  }
+  
+  .nav-link-custom {
+    text-align: center;
+    margin: 0.25rem 0;
+  }
+  
+  .cta-button {
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  /* Hero responsive */
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-actions {
+    justify-content: center;
+  }
+  
+  .hero-stats {
+    justify-content: center;
+    gap: 32px;
+  }
+
+  /* Service cards responsive */
+  .service-cards {
+    max-width: 400px;
+  }
+  
+  .service-card {
+    padding: 20px;
+  }
+
+  /* Footer responsive */
+  .footer-company {
+    text-align: center !important;
+    margin-top: 2rem;
+  }
+  
+  .social-links {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .footer-links {
+    justify-content: center;
+    margin-top: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .footer-links span {
+    display: none;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  /* Header responsive */
+  .header-top .row > div {
+    text-align: center !important;
+    margin-bottom: 0.5rem;
+  }
+  
+  .company-logo {
+    font-size: 1.3rem;
+  }
+  
+  .phone-number {
+    font-size: 1rem;
+  }
+
+  /* Hero responsive */
+  .hero-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .hero-description {
+    text-align: center;
+    margin: 0 auto 32px;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .primary-btn, .secondary-btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .hero-stats {
+    gap: 24px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  /* Footer responsive */
+  .company-title {
+    font-size: 1.5rem;
+  }
+  
+  .footer-cta-btn {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+  /* Hero responsive */
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .hero-stats {
+    gap: 16px;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .stat-label {
+    font-size: 12px;
+  }
+  
+  .tech-card {
+    padding: 16px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .tech-icon {
+    font-size: 2rem;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  
+  .hero-actions {
+    gap: 12px;
+  }
+  
+  .primary-btn, .secondary-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+}
