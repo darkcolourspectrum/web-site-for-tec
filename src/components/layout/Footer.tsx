@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
     <footer className="modern-footer">
       {/* Основная секция футера */}
@@ -36,7 +38,12 @@ const Footer: React.FC = () => {
                   и оптимизации бизнес-процессов
                 </p>
                 <div className="social-links">
-                  <a href="//t.me/ibtcom" target="_blank" rel="noopener noreferrer" className="social-link">
+                  <a 
+                    href="https://t.me/ibtcom" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="social-link"
+                  >
                     <i className="social-icon">📱</i>
                     <span>Telegram</span>
                   </a>
@@ -54,7 +61,7 @@ const Footer: React.FC = () => {
             <Col md={8}>
               <div className="copyright-info">
                 <p className="mb-1">
-                  © 2010-2025, ООО «Компания Инновационных Бизнес Технологий». 
+                  © 2010-{currentYear}, ООО «Компания Инновационных Бизнес Технологий». 
                   Все права защищены.
                 </p>
                 <p className="company-details mb-0">

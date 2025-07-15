@@ -1,10 +1,10 @@
 import React from 'react';
-// import HeroSection from '../components/HeroSection';
+import HeroSection from '../components/HeroSection';
 
 const HomePage: React.FC = () => {
   return (
     <div className="home-page">
-      {/* <HeroSection /> */}
+      <HeroSection />
       {/* Здесь будут остальные секции главной страницы */}
     </div>
   );

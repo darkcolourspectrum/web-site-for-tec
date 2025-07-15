@@ -5,106 +5,100 @@ import { Navbar, Nav, Container, Button, Row, Col } from 'react-bootstrap';
 const Header: React.FC = () => {
   const [expanded, setExpanded] = useState(false);
 
+  const handleNavClick = () => setExpanded(false);
+
+  const navItems = [
+    { path: '/', label: 'Главная', isRoute: true },
+    { path: '#telephony', label: 'Телефония', isRoute: false },
+    { path: '#software', label: 'Программное обеспечение', isRoute: false },
+    { path: '#services', label: 'Услуги', isRoute: false },
+    { path: '#clients', label: 'Наши клиенты', isRoute: false },
+    { path: '#about', label: 'О компании', isRoute: false },
+    { path: '#contacts', label: 'Контакты', isRoute: false }
+  ];
+
   return (
     <>
-      {/* Верхняя компактная панель */}
+      {/* Верхняя компактная панель с навигацией */}
       <div className="header-top bg-light py-2">
         <Container>
           <Row className="align-items-center">
-            <Col md={4}>
+            <Col md={2}>
               <div className="company-logo">
                 <strong>IBTCOM</strong>
               </div>
             </Col>
-            <Col md={4} className="text-center">
-              <div className="company-name">
-                <small className="text-muted">
-                  Компания Инновационных Бизнес Технологий
-                </small>
-              </div>
-            </Col>
-            <Col md={4} className="text-end">
-              <div className="contact-info">
-                <div className="phone-number fw-bold">+7(3822) 97-79-97</div>
-                <div className="email text-muted">ibtcom@ibtcom.ru</div>
-              </div>
+            <Col md={10}>
+              <Navbar 
+                expand="lg" 
+                bg="light" 
+                className="p-0"
+                expanded={expanded}
+                onToggle={setExpanded}
+              >
+                <Navbar.Toggle 
+                  aria-controls="main-navbar-nav" 
+                  className="border-0 ms-auto"
+                />
+                
+                <Navbar.Collapse id="main-navbar-nav">
+                  <Nav className="ms-auto align-items-center">
+                    {navItems.map((item) => (
+                      item.isRoute ? (
+                        <Nav.Link 
+                          key={item.path}
+                          as={Link} 
+                          to={item.path}
+                          className="nav-link-custom"
+                          onClick={handleNavClick}
+                        >
+                          {item.label}
+                        </Nav.Link>
+                      ) : (
+                        <Nav.Link 
+                          key={item.path}
+                          href={item.path}
+                          className="nav-link-custom"
+                          onClick={handleNavClick}
+                        >
+                          {item.label}
+                        </Nav.Link>
+                      )
+                    ))}
+                    <Button 
+                      variant="primary" 
+                      className="cta-button ms-3"
+                      onClick={handleNavClick}
+                    >
+                      Получить консультацию
+                    </Button>
+                  </Nav>
+                </Navbar.Collapse>
+              </Navbar>
             </Col>
           </Row>
         </Container>
       </div>
 
-      {/* Компактная навигационная панель */}
-      <Navbar 
-        expand="lg" 
-        bg="white" 
-        className="main-navbar shadow-sm py-2"
-        expanded={expanded}
-        onToggle={() => setExpanded(!expanded)}
-      >
+      {/* Нижняя узкая полоса с информацией */}
+      <div className="header-bottom bg-white shadow-sm py-1">
         <Container>
-          <Navbar.Toggle 
-            aria-controls="main-navbar-nav" 
-            className="border-0"
-            onClick={() => setExpanded(!expanded)}
-          />
-          
-          <Navbar.Collapse id="main-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link 
-                as={Link} 
-                to="/" 
-                className="nav-link-custom"
-                onClick={() => setExpanded(false)}
-              >
-                Главная
-              </Nav.Link>
-              <Nav.Link 
-                href="#telephony" 
-                className="nav-link-custom"
-                onClick={() => setExpanded(false)}
-              >
-                Телефония
-              </Nav.Link>
-              <Nav.Link 
-                href="#software" 
-                className="nav-link-custom"
-                onClick={() => setExpanded(false)}
-              >
-                Программное обеспечение
-              </Nav.Link>
-              <Nav.Link 
-                href="#hardware" 
-                className="nav-link-custom"
-                onClick={() => setExpanded(false)}
-              >
-                Аппаратное обеспечение
-              </Nav.Link>
-              <Nav.Link 
-                href="#partners" 
-                className="nav-link-custom"
-                onClick={() => setExpanded(false)}
-              >
-                Партнеры
-              </Nav.Link>
-              <Nav.Link 
-                href="#faq" 
-                className="nav-link-custom"
-                onClick={() => setExpanded(false)}
-              >
-                Вопросы
-              </Nav.Link>
-            </Nav>
-            
-            <Button 
-              variant="primary" 
-              className="cta-button"
-              onClick={() => setExpanded(false)}
-            >
-              Получить консультацию
-            </Button>
-          </Navbar.Collapse>
+          <Row className="align-items-center">
+            <Col md={8}>
+              <div className="company-name text-muted small">
+                Компания Инновационных Бизнес Технологий
+              </div>
+            </Col>
+            <Col md={4} className="text-end">
+              <div className="contact-info-inline">
+                <span className="phone-number fw-bold">+7(3822) 97-79-97</span>
+                <span className="separator mx-2">|</span>
+                <span className="email text-muted">ibtcom@ibtcom.ru</span>
+              </div>
+            </Col>
+          </Row>
         </Container>
-      </Navbar>
+      </div>
     </>
   );
 };
