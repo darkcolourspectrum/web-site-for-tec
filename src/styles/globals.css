@@ -142,20 +142,26 @@ html, body, #root {
   font-size: 1rem;
 }
 
-.footer-cta-btn {
-  border-radius: 25px;
-  padding: 0.6rem 1.5rem;
-  font-weight: 500;
-  border: 2px solid #007bff;
+.footer-call-btn {
+  background: transparent;
   color: #007bff !important;
+  border: 1px solid #007bff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
 }
 
-.footer-cta-btn:hover {
-  background-color: #007bff !important;
+.footer-call-btn:hover {
+  background: #007bff;
   color: white !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  text-decoration: none;
 }
 
 .company-title {
@@ -223,4 +229,16 @@ html, body, #root {
 
 .footer-link:hover {
   color: #007bff;
+}
+
+.tg-icon {
+  display: flex;
+  align-items: center;
+}
+
+
+.tg-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }

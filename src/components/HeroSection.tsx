@@ -6,7 +6,6 @@ const HeroSection: React.FC = () => {
   const mousePosition = useRef({ x: 0, y: 0 });
   const animationFrameId = useRef<number | null>(null);
   
-  // Массив точек для анимации
   const particles = useRef<Array<{
     x: number;
     y: number;
@@ -23,14 +22,12 @@ const HeroSection: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Проверка на мобильное устройство
     const isMobile = window.innerWidth <= 768;
     if (isMobile) {
       canvas.style.display = 'none';
       return;
     }
 
-    // Установка размеров canvas
     const setCanvasSize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -39,7 +36,6 @@ const HeroSection: React.FC = () => {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Инициализация частиц
     const particleCount = 150;
     for (let i = 0; i < particleCount; i++) {
       particles.current.push({
@@ -52,7 +48,6 @@ const HeroSection: React.FC = () => {
       });
     }
 
-    // Обработчик движения мыши
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       mousePosition.current = {
@@ -62,27 +57,21 @@ const HeroSection: React.FC = () => {
     };
     window.addEventListener('mousemove', handleMouseMove);
 
-    // Функция анимации
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Обновление и отрисовка частиц
       particles.current.forEach((particle, index) => {
-        // Движение частиц
         particle.x += particle.vx;
         particle.y += particle.vy;
         
-        // Отскок от границ
         if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
         if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
         
-        // Отрисовка частицы
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(0, 123, 255, ${particle.opacity})`;
         ctx.fill();
         
-        // Соединение близких частиц линиями
         particles.current.forEach((otherParticle, otherIndex) => {
           if (index !== otherIndex) {
             const dx = particle.x - otherParticle.x;
@@ -99,7 +88,6 @@ const HeroSection: React.FC = () => {
           }
         });
         
-        // Взаимодействие с мышью
         const dx = mousePosition.current.x - particle.x;
         const dy = mousePosition.current.y - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
@@ -115,7 +103,6 @@ const HeroSection: React.FC = () => {
     };
     animate();
 
-    // Очистка
     return () => {
       window.removeEventListener('resize', setCanvasSize);
       window.removeEventListener('mousemove', handleMouseMove);
@@ -146,19 +133,19 @@ const HeroSection: React.FC = () => {
                 
                 <div className="hero-features">
                   <div className="feature-card">
-                    <div className="feature-icon">📱</div>
+                    <div className="feature-icon">💸</div>
                     <h3>Сократим затраты<br/>на сотовую связь</h3>
                     <p>До 30% экономии</p>
                   </div>
                   
                   <div className="feature-card">
-                    <div className="feature-icon">💻</div>
+                    <div className="feature-icon">🌐</div>
                     <h3>Подберем и оптимизируем<br/>программное обеспечение</h3>
                     <p>Эффективные решения</p>
                   </div>
                   
                   <div className="feature-card">
-                    <div className="feature-icon">🔧</div>
+                    <div className="feature-icon">🖧</div>
                     <h3>Подберем и установим<br/>аппаратное обеспечение</h3>
                     <p>Полный цикл услуг</p>
                   </div>

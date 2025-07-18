@@ -9,17 +9,15 @@ const Header: React.FC = () => {
 
   const navItems = [
     { path: '/', label: 'Главная', isRoute: true },
-    { path: '#telephony', label: 'Телефония', isRoute: false },
-    { path: '#software', label: 'Программное обеспечение', isRoute: false },
-    { path: '#services', label: 'Услуги', isRoute: false },
-    { path: '#clients', label: 'Наши клиенты', isRoute: false },
-    { path: '#about', label: 'О компании', isRoute: false },
-    { path: '#contacts', label: 'Контакты', isRoute: false }
+    { path: 'telephony', label: 'Телефония', isRoute: true },
+    { path: 'software', label: 'Программное обеспечение', isRoute: true },
+    { path: 'hardware', label: 'Аппаратное обеспечение', isRoute: true },
+    { path: 'about', label: 'О компании', isRoute: true },
   ];
 
   return (
     <>
-      {/* Верхняя компактная панель с навигацией */}
+      {/* Верхняя панель с навигацией */}
       <div className="header-top bg-light py-2">
         <Container>
           <Row className="align-items-center">

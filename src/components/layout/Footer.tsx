@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import tgIcon from '../../styles/assets/tg.svg'
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -23,9 +24,9 @@ const Footer: React.FC = () => {
                   <i className="contact-icon">📧</i>
                   <span className="contact-text">ibtcom@ibtcom.ru</span>
                 </div>
-                <Button variant="outline-light" className="footer-cta-btn">
+                <a href="tel:+73822977997" className="footer-call-btn">
                   Заказать звонок
-                </Button>
+                </a>
               </div>
             </Col>
             
@@ -44,7 +45,9 @@ const Footer: React.FC = () => {
                     rel="noopener noreferrer" 
                     className="social-link"
                   >
-                    <i className="social-icon">📱</i>
+                    <i className="tg-icon">
+                      <img src={tgIcon} alt="telegram" />
+                    </i>
                     <span>Telegram</span>
                   </a>
                 </div>
@@ -54,7 +57,7 @@ const Footer: React.FC = () => {
         </Container>
       </div>
 
-      {/* Нижняя секция с копирайтом */}
+      {/* секция с копирайтом */}
       <div className="footer-bottom bg-darker py-3">
         <Container>
           <Row className="align-items-center">
