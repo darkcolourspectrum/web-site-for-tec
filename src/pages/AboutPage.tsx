@@ -64,7 +64,7 @@ export const AboutPage: React.FC = () => {
 
   return (
     <div className="about-page">
-      {/* Hero Section */}
+    {/* Hero Section */}
       <section className="about-hero">
         <div className="container">
           <div className="about-title-section">
@@ -74,31 +74,31 @@ export const AboutPage: React.FC = () => {
             <p className="about-subtitle">
                 Профессиональная команда экспертов, готовая решить любые IT-задачи вашего бизнеса
             </p>
-            <div className="description-content">
-                <div className="features-grid">
-                {companyFeatures.map((feature, index) => {
-                    const IconComponent = feature.icon;
-                    return (
-                    <div key={index} className="feature-card">
-                        <div className="feature-icon-container">
-                        <IconComponent />
-                        </div>
-                        <div className="feature-content">
-                        <h3 className="feature-title">
-                            {feature.title}
-                        </h3>
-                        <p className="feature-description">
-                            {feature.description}
-                        </p>
-                        </div>
+          </div>
+          
+          <div className="features-grid">
+            {companyFeatures.map((feature, index) => {
+                const IconComponent = feature.icon;
+                return (
+                <div key={index} className="feature-card">
+                    <div className="feature-icon-container">
+                    <IconComponent />
                     </div>
-                    );
-                })}
+                    <div className="feature-content">
+                    <h3 className="feature-title">
+                        {feature.title}
+                    </h3>
+                    <p className="feature-description">
+                        {feature.description}
+                    </p>
+                    </div>
                 </div>
-            </div>
+                );
+            })}
           </div>
         </div>
       </section>
+
 
       {/* Working Principles Section */}
       <section className="working-principles">

@@ -23,13 +23,13 @@
 .about-title {
   font-size: 3.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
   margin-bottom: 1.5rem;
-  padding-top: 1em;
+  padding-top: 1.2em;
 }
 
 @media (min-width: 768px) {
@@ -87,7 +87,14 @@
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 5em;
-  padding-bottom: 15em;
+  padding-bottom: 5rem;
+}
+
+/* Добавляем отступы на мобильных устройствах */
+@media (max-width: 767px) {
+  .about-page .features-grid {
+    padding: 0 1rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -99,8 +106,8 @@
 
 @media (min-width: 1200px) {
   .about-page .features-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
   }
 }
 
