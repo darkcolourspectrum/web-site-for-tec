@@ -152,9 +152,9 @@ const HeroSection: React.FC = () => {
                 </div>
                 
                 <div className="hero-actions">
-                  <Button className="primary-btn">
+                  <button className="hero-primary-btn-unique">
                     Получить консультацию
-                  </Button>
+                  </button>
                   <Button variant="outline-light" className="secondary-btn">
                     Узнать больше
                   </Button>
@@ -174,16 +174,16 @@ const HeroSection: React.FC = () => {
                     <div className="stat-label">Средняя экономия</div>
                   </div>
                 </div>
+
+                <div className="scroll-indicator">
+                  <div className="scroll-mouse">
+                    <div className="scroll-wheel"></div>
+                  </div>
+                </div>
               </div>
             </Col>
           </Row>
         </Container>
-      </div>
-      
-      <div className="scroll-indicator">
-        <div className="scroll-mouse">
-          <div className="scroll-wheel"></div>
-        </div>
       </div>
     </section>
   );

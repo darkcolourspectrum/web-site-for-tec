@@ -86,19 +86,49 @@ html, body, #root {
   background-color: #f8f9fa;
 }
 
+/* Фиксированные стили для кнопки в header */
 .cta-button {
-  font-weight: 600;
-  padding: 0.5rem 1.25rem;
-  border-radius: 25px;
-  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-  border: none;
+  font-weight: 600 !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 25px !important;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  border: none !important;
   transition: all 0.3s ease;
-  font-size: 0.875rem;
+  font-size: 0.875rem !important;
+  white-space: nowrap !important;
+  min-width: auto !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: 1.5 !important;
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+}
+
+/* Дополнительная специфичность для Bootstrap переопределения */
+.navbar .cta-button,
+.navbar-nav .cta-button {
+  font-weight: 600 !important;
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 25px !important;
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  border: none !important;
+  font-size: 0.875rem !important;
+  white-space: nowrap !important;
+  min-width: auto !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: 1.5 !important;
+  color: white !important;
+}
+
+.navbar .cta-button:hover,
+.navbar-nav .cta-button:hover {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+  color: white !important;
 }
 
 /* Footer стили */
@@ -235,7 +265,6 @@ html, body, #root {
   display: flex;
   align-items: center;
 }
-
 
 .tg-icon img {
   width: 20px;

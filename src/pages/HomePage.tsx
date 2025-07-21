@@ -6,7 +6,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="home-page">
       <HeroSection />
-      {/* <FAQSection/> */}
+      <FAQSection/>
       {/* Остальные секции главной страницы */}
     </div>
   );
