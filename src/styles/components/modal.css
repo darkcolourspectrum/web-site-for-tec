@@ -9,9 +9,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1050;
+    z-index: 10000;
     animation: fadeIn 0.3s ease-out;
     padding: 1rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    height: 100vh;
+    height: 100dvh;
 }
 
 .modal-container {
@@ -19,8 +23,10 @@
     max-width: 500px;
     width: 100%;
     max-height: 90vh;
-    overflow-y: auto;
-    animation: slideUp 0.3s ease-out;
+    max-height: 90dvh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-background {
@@ -34,14 +40,18 @@
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+        0 25px 50px -12px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
 .modal-content {
     position: relative;
     padding: 2.5rem;
     z-index: 1;
+    border-radius: 24px;
+    overflow-y: auto;
+    max-height: 100%;
+    -webkit-overflow-scrolling: touch;
 }
 
 .modal-close {
@@ -167,6 +177,7 @@
     border-color: #007bff;
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
     background: rgba(255, 255, 255, 0.95);
+    transform: none;
 }
 
 .form-textarea {
@@ -259,29 +270,28 @@
 .checkbox-input:checked + .checkbox-custom::after {
     content: '';
     position: absolute;
-    top: 2px;
     left: 6px;
+    top: 2px;
     width: 4px;
-    height: 8px;
+    height: 10px;
     border: solid white;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
 
 .agreement-text {
-    font-size: 0.875rem;
     color: #64748b;
+    font-size: 0.875rem;
     line-height: 1.4;
 }
 
 .privacy-link {
     color: #007bff;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-weight: 500;
 }
 
 .privacy-link:hover {
-    color: #0056b3;
     text-decoration: underline;
 }
 
@@ -291,74 +301,252 @@
 }
 
 .success-icon {
-    color: #10b981;
+    color: #22c55e;
     margin-bottom: 1.5rem;
-    animation: successPulse 0.6s ease-out;
+    animation: bounce 1s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 .success-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #1e293b;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .success-subtitle {
     color: #64748b;
     font-size: 1rem;
     line-height: 1.5;
-    margin: 0;
 }
 
 @keyframes fadeIn {
     from {
-    opacity: 0;
+        opacity: 0;
     }
     to {
-    opacity: 1;
+        opacity: 1;
     }
 }
 
 @keyframes slideUp {
     from {
-    opacity: 0;
-    transform: translateY(30px) scale(0.95);
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
     }
     to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
 
-@keyframes successPulse {
-    0% {
-    transform: scale(0.8);
-    opacity: 0;
-    }
-    50% {
-    transform: scale(1.1);
-    }
-    100% {
-    transform: scale(1);
-    opacity: 1;
-    }
+.modal-container {
+    animation: slideUp 0.3s ease-out;
 }
 
-@media (max-width: 640px) {
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .modal-overlay {
+        padding: 0.5rem;
+        align-items: flex-start;
+        justify-content: center;
+        /* Уменьшаем отступ сверху после оптимизации шапки */
+        padding-top: max(
+            calc(env(safe-area-inset-top, 0px) + 90px),
+            90px
+        );
+        min-height: 100vh;
+        min-height: 100dvh;
+        /* Добавляем запас снизу */
+        padding-bottom: max(
+            calc(env(safe-area-inset-bottom, 0px) + 1rem),
+            1rem
+        );
+    }
+    
+    .modal-container {
+        max-height: calc(100vh - 130px);
+        max-height: calc(100dvh - 130px);
+        width: 100%;
+        margin-top: 0;
+    }
+    
     .modal-content {
-    padding: 1.5rem;
+        padding: 1.5rem;
     }
-
+    
     .modal-title {
-    font-size: 1.5rem;
+        font-size: 1.5rem;
     }
-
+    
     .modal-actions {
-    flex-direction: column;
+        flex-direction: column;
+        gap: 0.75rem;
     }
-
+    
     .btn-secondary,
     .btn-primary {
-    flex: none;
+        width: 100%;
+        padding: 1rem;
     }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+    .modal-overlay {
+        padding: 0.25rem;
+        /* Уменьшаем отступ для маленьких экранов после оптимизации шапки */
+        padding-top: max(
+            calc(env(safe-area-inset-top, 0px) + 70px),
+            70px
+        );
+        padding-bottom: max(
+            calc(env(safe-area-inset-bottom, 0px) + 1rem),
+            1rem
+        );
+    }
+    
+    .modal-container {
+        width: 100%;
+        max-height: calc(100vh - 110px);
+        max-height: calc(100dvh - 110px);
+    }
+    
+    .modal-content {
+        padding: 1rem;
+    }
+    
+    .modal-form {
+        gap: 1rem;
+    }
+    
+    .modal-subtitle-wrapper {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Когда клавиатура открыта (маленькая высота экрана) */
+@media screen and (max-height: 600px) {
+    .modal-overlay {
+        align-items: flex-start;
+        /* При открытой клавиатуре уменьшаем отступ */
+        padding-top: max(
+            calc(env(safe-area-inset-top, 0px) + 80px),
+            80px
+        ) !important;
+    }
+    
+    .modal-container {
+        max-height: calc(100vh - 120px);
+        max-height: calc(100dvh - 120px);
+    }
+    
+    .modal-content {
+        padding: 1rem;
+    }
+    
+    .modal-form {
+        gap: 0.75rem;
+    }
+    
+    .modal-subtitle-wrapper {
+        margin-bottom: 1rem;
+    }
+    
+    .modal-title {
+        font-size: 1.25rem;
+    }
+}
+
+/* Дополнительный медиа-запрос для очень низких экранов */
+@media screen and (max-height: 500px) {
+    .modal-overlay {
+        padding-top: max(
+            calc(env(safe-area-inset-top, 0px) + 60px),
+            60px
+        ) !important;
+    }
+    
+    .modal-container {
+        max-height: calc(100vh - 100px);
+        max-height: calc(100dvh - 100px);
+    }
+    
+    .modal-content {
+        padding: 0.75rem;
+    }
+    
+    .modal-form {
+        gap: 0.5rem;
+    }
+}
+
+/* Фиксы для iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .modal-overlay {
+        height: 100vh;
+        height: -webkit-fill-available;
+    }
+    
+    .modal-container {
+        max-height: calc(-webkit-fill-available - 4rem);
+    }
+    
+    /* Дополнительные отступы для iOS */
+    @media (max-width: 768px) {
+        .modal-overlay {
+            padding-top: max(
+                calc(env(safe-area-inset-top, 0px) + 140px),
+                140px
+            ) !important;
+        }
+    }
+}
+
+/* Специальные правила для устройств с вырезом (notch) */
+@supports (padding: max(0px)) {
+    @media (max-width: 768px) {
+        .modal-overlay {
+            padding-top: max(
+                calc(env(safe-area-inset-top, 0px) + 130px),
+                130px
+            );
+        }
+    }
+}
+
+/* Ландшафтная ориентация на мобильных */
+@media (max-width: 768px) and (orientation: landscape) {
+    .modal-overlay {
+        padding-top: max(
+            calc(env(safe-area-inset-top, 0px) + 100px),
+            100px
+        );
+        padding-left: env(safe-area-inset-left, 0px);
+        padding-right: env(safe-area-inset-right, 0px);
+    }
+    
+    .modal-container {
+        max-height: calc(100vh - 140px);
+        max-height: calc(100dvh - 140px);
+    }
+}
+
+/* Блокировка скролла body */
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
 }

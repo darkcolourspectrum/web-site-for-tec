@@ -131,6 +131,99 @@ html, body, #root {
   color: white !important;
 }
 
+/* МОБИЛЬНАЯ ОПТИМИЗАЦИЯ ШАПКИ */
+@media (max-width: 768px) {
+  /* Уменьшаем отступы в шапке на мобильных */
+  .header-top {
+    padding: 0.5rem 0 !important; /* Уменьшено с py-2 (1rem) до 0.5rem */
+  }
+  
+  .header-top .bg-light {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+  
+  /* Уменьшаем нижнюю полосу */
+  .header-bottom {
+    padding: 0.25rem 0 !important; /* Уменьшено с py-1 (0.5rem) до 0.25rem */
+  }
+  
+  /* Компактный логотип */
+  .company-logo {
+    font-size: 1.25rem; /* Уменьшено с 1.5rem */
+    line-height: 1.2;
+  }
+  
+  /* Уменьшаем размер навбара */
+  .navbar {
+    min-height: auto !important;
+    padding: 0 !important;
+  }
+  
+  /* Позиционирование кнопки бургер-меню */
+  .navbar-toggler {
+    padding: 0.25rem 0.5rem !important; /* Уменьшенный padding */
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    border: 1px solid transparent !important;
+    margin: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+  }
+  
+  /* Выравнивание элементов в ряду */
+  .header-top .row {
+    align-items: center !important;
+  }
+  
+  /* Компактные контакты в нижней полосе */
+  .contact-info-inline {
+    font-size: 0.75rem; /* Уменьшено */
+    line-height: 1.2;
+  }
+  
+  .company-name {
+    font-size: 0.75rem; /* Уменьшено */
+    line-height: 1.2;
+  }
+  
+  /* Скрываем разделитель на очень маленьких экранах */
+  @media (max-width: 480px) {
+    .separator {
+      display: none;
+    }
+    
+    .email {
+      display: block;
+      font-size: 0.7rem;
+    }
+    
+    .phone-number {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  /* Еще более компактная шапка на очень маленьких экранах */
+  .header-top {
+    padding: 0.25rem 0 !important;
+  }
+  
+  .header-bottom {
+    padding: 0.125rem 0 !important;
+  }
+  
+  .company-logo {
+    font-size: 1.1rem;
+  }
+  
+  /* Скрываем нижнюю полосу на самых маленьких экранах */
+  .header-bottom {
+    display: none !important;
+  }
+}
+
 /* Footer стили */
 .modern-footer {
   margin-top: auto;

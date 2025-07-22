@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Button, Row, Col } from 'react-bootstrap';
+import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
+import { ContactModal } from '../ui/ContactModal';
 
 const Header: React.FC = () => {
   const [expanded, setExpanded] = useState(false);
@@ -63,13 +64,13 @@ const Header: React.FC = () => {
                         </Nav.Link>
                       )
                     ))}
-                    <Button 
-                      variant="primary" 
-                      className="cta-button ms-3"
-                      onClick={handleNavClick}
-                    >
-                      Получить консультацию
-                    </Button>
+                    <ContactModal
+                      trigger={
+                        <button className="cta-button ms-3">
+                          Получить консультацию
+                        </button>
+                      }
+                    />
                   </Nav>
                 </Navbar.Collapse>
               </Navbar>

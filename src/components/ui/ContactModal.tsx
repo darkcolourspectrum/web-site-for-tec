@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Send, CheckCircle } from 'lucide-react';
 import '../../styles/components/modal.css'
 
@@ -17,6 +17,32 @@ export const ContactModal: React.FC<ContactModalProps> = ({ trigger, withMessage
     email: '',
     message: ''
   });
+
+  useEffect(() => {
+    if (show) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.classList.add('modal-open');
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.classList.remove('modal-open');
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    }
+
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.classList.remove('modal-open');
+    };
+  }, [show]);
 
   const handleClose = () => {
     setShow(false);

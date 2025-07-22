@@ -145,7 +145,7 @@ const HeroSection: React.FC = () => {
                   </div>
                   
                   <div className="feature-card">
-                    <div className="feature-icon">🖧</div>
+                    <div className="feature-icon">🖥️</div>
                     <h3>Подберем и установим<br/>аппаратное обеспечение</h3>
                     <p>Полный цикл услуг</p>
                   </div>
