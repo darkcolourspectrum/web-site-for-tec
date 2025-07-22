@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mousePosition = useRef({ x: 0, y: 0 });
   const animationFrameId = useRef<number | null>(null);
+  const navigate = useNavigate();
   
   const particles = useRef<Array<{
     x: number;
@@ -112,6 +114,11 @@ const HeroSection: React.FC = () => {
     };
   }, []);
 
+  const handleLearnMoreClick = () => {
+    navigate('/about');
+    window.scrollTo(0, 0);
+  };
+
   return (
     <section className="hero-section">
       <canvas ref={canvasRef} className="hero-canvas" />
@@ -155,7 +162,11 @@ const HeroSection: React.FC = () => {
                   <button className="hero-primary-btn-unique">
                     Получить консультацию
                   </button>
-                  <Button variant="outline-light" className="secondary-btn">
+                  <Button 
+                    variant="outline-light" 
+                    className="secondary-btn"
+                    onClick={handleLearnMoreClick}
+                  >
                     Узнать больше
                   </Button>
                 </div>
